@@ -1,0 +1,30 @@
+{
+  "name": "my-learning",
+  "version": "1.0.0",
+  "description": "My Learning",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server/mock-server.js",
+    "dev": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\"  \"nodemon src/server/mock-server.js\" \"ng build --watch\"",
+    "build": "ng build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subhajit-csc/my-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subhajit-csc/my-learning/issues"
+  },
+  "homepage": "https://github.com/subhajit-csc/my-learning#readme",
+  "devDependencies": {
+    "nock": "^13.2.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "cors": "2.8.5",
+    "body-parser": "^1.18.3"
+  }
+}
