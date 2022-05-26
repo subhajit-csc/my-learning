@@ -1,0 +1,174 @@
+<h4 class="font-weight-bold py-3 mb-4">Employee</h4>
+<div *ngIf="enteredId">
+  <div class="media align-items-center py-3 mb-3">
+    <img src="http://itibalasore.org/wp-content/uploads/2018/02/default-user-male-300x284.png" alt="" class="d-block ui-w-100 rounded-circle">
+    <div class="media-body ml-4">
+      <h4 class="font-weight-bold mb-0">{{employee.firstName}} {{employee.lastName}}
+        <span class="text-muted font-weight-normal">{{email}}</span>
+      </h4>
+      <div class="text-muted mb-2">ID: {{Id}}</div>
+      <button class="btn btn-info btn-sm" (click)="open(defaultModal)">Edit</button>&nbsp;
+      <button mwlConfirmationPopover class="btn btn-danger btn-sm" popoverTitle="Delete Employee" popoverMessage="Are you sure you want to delete {{employee.firstName}} {{employee.lastName}}?"
+        [placement]="isRTL ? 'left' : 'right'" (confirm)="deleteEmployee()">Delete</button>&nbsp;
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <table class="table user-view-table m-0">
+        <td colspan="2">
+          <ngb-progressbar *ngIf="bar < 100" [showValue]="true" [value]="bar" [striped]="true" [animated]="true"></ngb-progressbar>
+          <ngb-progressbar *ngIf="bar >= 100" [showValue]="true" [value]="bar"></ngb-progressbar>
+        </td>
+        <tbody>
+          <tr>
+            <td>
+              <b>Career Level:</b>
+            </td>
+            <td>{{employee.careerLevel}}</td>
+          </tr>
+          <tr *ngIf="showAddress">
+            <td>
+              <b>Address:</b>
+            </td>
+            <td>{{employee.address}} {{employee.city}}, {{employee.state}} {{employee.zipcode}}</td>
+          </tr>
+          <tr>
+            <td>
+              <b>Skills:</b>
+            </td>
+            <td>
+              <tr *ngFor="let skill of employee.skills">
+                <a [routerLink]="['/skill', { skill: skill }]">{{skill}}</a>
+              </tr>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!enteredId">
+  <div class="row">
+    <div class="col" style="text-align: left; width:49%; display: inline-block">
+      <tag-input class="ngx-chips-primary" secondaryPlaceholder="Search by..." placeholder="+ add" [(ngModel)]="items" [editable]="true"
+        (ngModelChange)="onChange($event)"></tag-input>
+    </div>
+    <div class="col" style="text-align: right; width:50%; display: inline-block">
+      <button type="button" class="btn btn-success" (click)="open(defaultModal)" style="float: right">Add Employee</button>
+      <ss-multiselect-dropdown class="btn btn-info" [settings]="searchSettings" [texts]="myTexts" [options]="defaultOptions" [(ngModel)]="skills"
+        (ngModelChange)="onChange($event)" style="float: right; padding: 0">
+      </ss-multiselect-dropdown>
+    </div>
+  </div>
+
+  <br>
+  <div class="card" style="text-align:center">
+    <table class="table card-table">
+      <thead>
+        <th>Employee Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Career Level</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data">
+          <td>
+            <a [routerLink]="['/employee', { id: d.empId }]">{{d.empId}}</a>
+          </td>
+          <td>{{d.firstName}}</td>
+          <td>{{d.lastName}}</td>
+          <td>{{d.careerLevel}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #defaultModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">
+      <div *ngIf="!enteredId">New
+        <span class="font-weight-light">Employee</span>
+      </div>
+      <div *ngIf="enteredId">Update
+        <span class="font-weight-light">Employee</span>
+      </div>
+      <br>
+      <small class="text-muted">Enter all of the below information</small>
+    </h5>
+    <button type="button" class="close" (click)="d('Cross click')">&times;</button>
+  </div>
+  <div class="modal-body">
+    <div class="form-row">
+      <div class="form-group col mb-0">
+        <label class="form-label">First Name</label>
+        <input [(ngModel)]="firstName" type="text" class="form-control" placeholder="Enter your First Name...">
+      </div>
+      <div class="form-group col mb-0">
+        <label class="form-label">Last Name</label>
+        <input [(ngModel)]="lastName" type="text" class="form-control" placeholder="Enter your Last Name...">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col">
+        <br>
+        <label class="form-label">Career Level</label>
+        <input [(ngModel)]="careerLevel" type="text" class="form-control" placeholder="Enter your Career Level...">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col mb-0">
+        <label class="form-label">Date of Birth</label>
+        <input [(ngModel)]="dateOfBirth" type="date" class="form-control">
+      </div>
+      <div class="form-group col mb-0">
+        <label class="form-label">Date of Join</label>
+        <input [(ngModel)]="dateOfJoin" type="date" class="form-control">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col">
+        <label class="form-label">Address</label>
+        <input [(ngModel)]="address" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col mb-0">
+        <label class="form-label">City</label>
+        <input [(ngModel)]="city" type="text" class="form-control">
+      </div>
+      <div class="form-group col mb-0">
+        <label class="form-label">State</label>
+        <input [(ngModel)]="state" type="text" class="form-control">
+      </div>
+      <div class="form-group col mb-0">
+        <label class="form-label">Zip Code</label>
+        <input [(ngModel)]="zipcode" type="text" class="form-control">
+      </div>
+    </div>
+    <div>
+      <label class="form-label">Skills</label>
+      <ss-multiselect-dropdown [settings]="searchSettings" [options]="defaultOptions" [(ngModel)]="skills">
+      </ss-multiselect-dropdown>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="c('Close click')">Close</button>
+    <button *ngIf="!enteredId" type="button" class="btn btn-primary" (click)="save(); c('Close click')">Save</button>
+    <button *ngIf="enteredId" type="button" class="btn btn-primary" (click)="updateEmployee(); c('Close click')">Update</button>
+  </div>
+</ng-template>
+
+<style>
+  .ng2-dropdown-menu {
+    z-index: 9999 !important;
+  }
+
+  .ion-md-trash {
+    color: red;
+  }
+
+</style>

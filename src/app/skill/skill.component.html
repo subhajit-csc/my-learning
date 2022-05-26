@@ -1,0 +1,90 @@
+<h4 class="font-weight-bold py-3 mb-4">Skill</h4>
+
+<div *ngIf="!enteredSkill">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" (click)="open(defaultModal)">Add New Skill</button>
+
+      <div class="card" style="text-align:center">
+        <table class="table card-table">
+          <thead>
+            <th>Skill</th>
+            <th># of Employees</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of chartData">
+              <td>
+                <a [routerLink]="['/skill', { skill: s.name }]">{{s.name}}</a>
+              </td>
+              <td>{{s.value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col">
+      <div style="height:75vh;">
+        <ngx-charts-bar-horizontal [results]="chartData" [xAxis]="true" [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true"
+          [scheme]="'vivid'" xAxisLabel="Technology" yAxisLabel="Number">
+        </ngx-charts-bar-horizontal>
+      </div>
+
+      <ng-template #defaultModal let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <div>New
+              <span class="font-weight-light">Skill</span>
+            </div>
+            <br>
+            <small class="text-muted">Enter all of the below information</small>
+          </h5>
+          <button type="button" class="close" (click)="d('Cross click')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col mb-0">
+              <input [(ngModel)]="skill" type="text" class="form-control" placeholder="Skill to add...">
+            </div>
+          </div>
+          <div>
+            <label class="form-label">Employees to give inputted skill: </label>
+            <ss-multiselect-dropdown [settings]="searchSettings" [options]="empOptions" [(ngModel)]="emps">
+            </ss-multiselect-dropdown>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="c('Close click')">Close</button>
+          <button *ngIf="!enteredId" type="button" class="btn btn-primary" (click)="newSkill(); c('Close click')">Save</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div *ngIf="enteredSkill">
+  <h2>{{routeSkill}}</h2>
+  <div class="card-deck">
+    <div *ngFor="let data of datas" class="card text-center" style="position: relative; width: 20%; height: 0; padding-bottom: 20%;">
+      <h6 class="card-title">{{data.name}}
+        <small class="text-muted"> | {{routeSkill}}</small>
+      </h6>
+      <ngx-charts-pie-chart [results]="data.listSeries" [legend]="false" [explodeSlices]="true" [labels]="false" [scheme]="'vivid'"
+        [doughnut]="true" style="position: absolute;">
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div *ngFor="let data of datas" class="card">
+      <table>
+        <tr *ngFor="let emp of data.emps">
+          <a [routerLink]="['/employee', { id: emp.empId }]">{{emp.firstName}} {{emp.lastName}}</a>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <label class="form-label">Employees to give inputted skill: </label>
+  <ss-multiselect-dropdown [settings]="searchSettings" [options]="empOptions" [(ngModel)]="emps">
+  </ss-multiselect-dropdown>
+  <button class="btn btn-info" (click)="updateSkill()">Update Skill to selected Employees</button>
+  <button mwlConfirmationPopover class="btn btn-danger" popoverTitle="Delete Skill" popoverMessage="Are you sure you want to delete {{routeSkill}}?"
+    [placement]="isRTL ? 'left' : 'right'" (confirm)="removeAll()">Delete Skill</button>
+</div>
