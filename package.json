@@ -1,51 +1,19 @@
 {
-  "name": "my-learning",
+  "name": "appwork-angular-starter",
   "version": "1.0.0",
-  "description": "My Learning",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "node src/server/mock-server.js",
-    "dev-u": "ng serve --extract-css",
-    "dev": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\"  \"nodemon src/server/mock-server.js\" \"ng build --watch\"",
-    "build": "ng build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/subhajit-csc/my-learning.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/subhajit-csc/my-learning/issues"
-  },
-  "homepage": "https://github.com/subhajit-csc/my-learning#readme",
-  "devDependencies": {
-    "@angular/cli": "1.7.4",
-    "@angular/compiler-cli": "5.2.10",
-    "@angular/language-service": "5.2.10",
-    "@types/chartist": "0.9.38",
-    "@types/jasmine": "2.8.7",
-    "@types/jasminewd2": "2.0.3",
-    "@types/node": "9.6.5",
-    "@types/numeral": "0.0.22",
-    "codelyzer": "4.3.0",
-    "html-webpack-plugin": "^5.5.0",
-    "jasmine-core": "3.1.0",
-    "jasmine-spec-reporter": "4.2.1",
-    "karma": "2.0.2",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-coverage-istanbul-reporter": "1.4.2",
-    "karma-jasmine": "1.1.2",
-    "karma-jasmine-html-reporter": "1.0.0",
-    "protractor": "5.3.1",
-    "ts-node": "6.0.3",
-    "tslint": "5.10.0",
-    "typescript": ">=2.4.2 <2.7.0",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-middleware": "^5.3.3",
-    "webpack-dev-server": "^4.9.0"
+    "ng": "ng",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check --extract-css",
+    "dev": "ng serve --extract-css",
+    "debug": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\"  \"nodemon src/server/mock-server.js\" \"ng serve --extract-css --watch\"",
+    "build": "ng build --extract-css",
+    "prod": "ng build --prod --output-hashing=media",
+    "prod:hashed": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "npm rebuild node-sass"
   },
   "dependencies": {
     "@agm/core": "1.0.0-beta.2",
@@ -116,5 +84,37 @@
     "toastr": "2.1.4",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.26"
-  }
+  },
+  "devDependencies": {
+    "@angular/cli": "1.7.4",
+    "@angular/compiler-cli": "5.2.10",
+    "@angular/language-service": "5.2.10",
+    "@types/chartist": "0.9.38",
+    "@types/node": "9.6.5",
+    "@types/numeral": "0.0.22",
+    "typescript": ">=2.4.2 <2.7.0",
+    "@types/jasmine": "2.8.7",
+    "@types/jasminewd2": "2.0.3",
+    "codelyzer": "4.3.0",
+    "jasmine-core": "3.1.0",
+    "jasmine-spec-reporter": "4.2.1",
+    "karma": "2.0.2",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-coverage-istanbul-reporter": "1.4.2",
+    "karma-jasmine": "1.1.2",
+    "karma-jasmine-html-reporter": "1.0.0",
+    "protractor": "5.3.1",
+    "ts-node": "6.0.3",
+    "tslint": "5.10.0"
+  },
+  "resolutions": {
+    "@angular/cli/node-sass": "4.7.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR",
+    "Opera 12.1",
+    "ie >= 10"
+  ]
 }
