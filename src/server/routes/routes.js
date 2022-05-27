@@ -8,7 +8,9 @@ const appRouter = (app, fs) => {
 
     // default route
     app.get('/', (req, res) => {
-       res.sendFile(process.cwd()+"/my-app/dist/angular-nodejs-example/index.html")
+      console.log('Loding index.html');
+      console.log(process.cwd()+"../../dist/index.html");
+       res.sendFile(process.cwd()+"/dist/index.html")
     });
 
     // // other routes

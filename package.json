@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --disable-host-check --extract-css",
+    "start": "nodemon src/server/mock-server.js",
     "dev": "ng serve --extract-css",
     "debug": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\"  \"nodemon src/server/mock-server.js\" \"ng serve --extract-css --watch\"",
     "build": "ng build --extract-css",
