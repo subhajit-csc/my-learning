@@ -35,6 +35,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { HttpModule } from '@angular/http';
 import { StatsComponent } from './stats/stats.component';
 import { SkillComponent } from './skill/skill.component';
+import { MySkillsComponent } from './my-skills/my-skills.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SkillComponent } from './skill/skill.component';
     HomeComponent,
     EmployeeComponent,
     StatsComponent,
-    SkillComponent
+    SkillComponent,
+    MySkillsComponent
   ],
 
   imports: [

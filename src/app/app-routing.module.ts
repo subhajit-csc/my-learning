@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { StatsComponent } from './stats/stats.component';
 import { SkillComponent } from './skill/skill.component';
+import { MySkillsComponent } from './my-skills/my-skills.component';
 
 // *******************************************************************************
 // Routes
@@ -46,6 +47,15 @@ const routes: Routes = [
     children: [
       { path: '', component: SkillComponent },
       { path: ':skill', component: SkillComponent }
+    ]
+  },
+
+  {
+    path: 'my-skills',
+    component: Layout1Component,
+    children: [
+      { path: '', component: MySkillsComponent },
+      { path: ':my-skills', component: MySkillsComponent }
     ]
   }
 ];
