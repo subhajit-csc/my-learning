@@ -106,5 +106,86 @@
         "value": 2
       }
     ]
+  },
+  {
+    "name": "Kubernetes",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 8
+      },{
+        "name": "SDE2",
+        "value": 5
+      },{
+        "name": "SDE3",
+        "value": 3
+      },{
+        "name": "Consultant",
+        "value": 2
+      },{
+        "name": "Manager",
+        "value": 1
+      },{
+        "name": "Principal",
+        "value": 3
+      },{
+        "name": "Architect",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Angular",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 10
+      },{
+        "name": "SDE2",
+        "value": 7
+      },{
+        "name": "SDE3",
+        "value": 4
+      },{
+        "name": "Consultant",
+        "value": 3
+      },{
+        "name": "Manager",
+        "value": 1
+      },{
+        "name": "Principal",
+        "value": 2
+      },{
+        "name": "Architect",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Microsoft Azure",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 9
+      },{
+        "name": "SDE2",
+        "value": 4
+      },{
+        "name": "SDE3",
+        "value": 2
+      },{
+        "name": "Consultant",
+        "value": 1
+      },{
+        "name": "Manager",
+        "value": 1
+      },{
+        "name": "Principal",
+        "value": 2
+      },{
+        "name": "Architect",
+        "value": 1
+      }
+    ]
   }
 ]

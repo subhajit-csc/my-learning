@@ -32,6 +32,9 @@
   },{
     "name": "Kubernetes",
     "value": 4
+  },{
+    "name": "Android",
+    "value": 8
   }
 
 ]
