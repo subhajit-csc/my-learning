@@ -1,22 +1,22 @@
 [
   {
-    "name": " 6 skills",
+    "name": " Microservices skills",
     "value": 12
   },
   {
-    "name": " 2 skills",
+    "name": " Java skills",
     "value": 20
   },
   {
-    "name": " 4 skills",
+    "name": " MongoDB skills",
     "value": 16
   },
   {
-    "name": " 8 skills",
+    "name": " Angular skills",
     "value": 2
   },
   {
-    "name": "  skills",
+    "name": " Docker skills",
     "value": 10
   }
 ]
