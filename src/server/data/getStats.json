@@ -1,0 +1,110 @@
+[
+  {
+    "name": "JAVA",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 10
+      },{
+        "name": "SDE2",
+        "value": 20
+      },{
+        "name": "SDE3",
+        "value": 8
+      },{
+        "name": "Consultant",
+        "value": 6
+      },{
+        "name": "Manager",
+        "value": 4
+      },{
+        "name": "Principal",
+        "value": 2
+      },{
+        "name": "Architect",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Microservices",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 1
+      },{
+        "name": "SDE2",
+        "value": 5
+      },{
+        "name": "SDE3",
+        "value": 12
+      },{
+        "name": "Consultant",
+        "value": 3
+      },{
+        "name": "Manager",
+        "value": 1
+      },{
+        "name": "Principal",
+        "value": 3
+      },{
+        "name": "Architect",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Docker",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 0
+      },{
+        "name": "SDE2",
+        "value": 2
+      },{
+        "name": "SDE3",
+        "value": 8
+      },{
+        "name": "Consultant",
+        "value": 5
+      },{
+        "name": "Manager",
+        "value": 2
+      },{
+        "name": "Principal",
+        "value": 1
+      },{
+        "name": "Architect",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "AWS",
+    "series":[
+      {
+        "name": "SDE1",
+        "value": 1
+      },{
+        "name": "SDE2",
+        "value": 2
+      },{
+        "name": "SDE3",
+        "value": 3
+      },{
+        "name": "Consultant",
+        "value": 2
+      },{
+        "name": "Manager",
+        "value": 2
+      },{
+        "name": "Principal",
+        "value": 3
+      },{
+        "name": "Architect",
+        "value": 2
+      }
+    ]
+  }
+]

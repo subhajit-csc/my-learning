@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './stats.component.html'
 })
 export class StatsComponent {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:3001';
 
   private options = {
     headers: new HttpHeaders({
@@ -67,7 +67,7 @@ export class StatsComponent {
 
   getAll() {
     return this.http
-      .get(this.apiUrl + '/getStats')
+      .get(this.apiUrl + '/v1/api/statistics/getStats')
       .pipe(map((res: Response) => res.json()))
       .subscribe(data => {
         this.data = data;
@@ -86,7 +86,7 @@ export class StatsComponent {
       this.defaultMessage = true;
     }
     return this.httpclient
-      .post(this.apiUrl + '/getMatches', body, this.options)
+      .post(this.apiUrl + '/v1/api/statistics/getMatches', body, this.options)
       .subscribe(data => {
         this.searchData = data;
       });

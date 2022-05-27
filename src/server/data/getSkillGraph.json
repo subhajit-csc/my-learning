@@ -1,0 +1,37 @@
+[
+  {
+    "name": "JAVA",
+    "value": 10
+  },{
+    "name": "Spring",
+    "value": 10
+  },{
+    "name": "Microservices",
+    "value": 8
+  },{
+    "name": "Spring Cloud",
+    "value": 9
+  },{
+    "name": "JUnit",
+    "value": 10
+  },{
+    "name": "Angular",
+    "value": 2
+  },{
+    "name": "Apache Kafka",
+    "value": 3
+  },{
+    "name": "MongoDB",
+    "value": 4
+  },{
+    "name": "Docker",
+    "value": 6
+  },{
+    "name": "Jenkins",
+    "value": 9
+  },{
+    "name": "Kubernetes",
+    "value": 4
+  }
+
+]

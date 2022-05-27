@@ -1,8 +1,12 @@
 
-const getUserData = (app, fs) => {
+const skillSetData = (app, fs) => {
 
     // variables
-    const dataPath = './src/server/data/users.json';
+    const dataPath = './src/server/data/employees.json';
+    // variables
+    const employeePath = './src/server/data/employee.json';
+    // variables
+    const getSkillGraphPath = './src/server/data/getSkillGraph.json';
 
     // helper methods
     const readFile = (callback, returnJson = false, filePath = dataPath, encoding = 'utf8') => {
@@ -27,7 +31,7 @@ const getUserData = (app, fs) => {
     };
 
     // READ
-    app.get('/v1/users', (req, res) => {
+    app.get('/v1/api/skill-set/getAll', (req, res) => {
         fs.readFile(dataPath, 'utf8', (err, data) => {
             if (err) {
                 throw err;
@@ -36,10 +40,21 @@ const getUserData = (app, fs) => {
             res.send(JSON.parse(data));
         });
     });
-   
+
     // READ
-    app.get('/v1/users/:id', (req, res) => {
-        fs.readFile(dataPath, 'utf8', (err, data) => {
+    app.get('/v1/api/skill-set/getSkillGraph', (req, res) => {
+      fs.readFile(getSkillGraphPath, 'utf8', (err, data) => {
+          if (err) {
+              throw err;
+          }
+
+          res.send(JSON.parse(data));
+      });
+  });
+
+    // READ
+    app.get('/v1/api/employees/:id', (req, res) => {
+        fs.readFile(employeePath, 'utf8', (err, data) => {
             if (err) {
                 throw err;
             }
@@ -48,10 +63,10 @@ const getUserData = (app, fs) => {
         });
     });
 
-   
+
 
     // CREATE
-    app.post('/v1/users', (req, res) => {
+    app.post('/v1/api/employees', (req, res) => {
 
 	    fs.readFile(dataPath, 'utf8', (err, data) => {
             if (err) {
@@ -59,11 +74,11 @@ const getUserData = (app, fs) => {
             }
 
             res.status(200).send(JSON.parse(data));
-        });         
+        });
     });
 
 
-    
+
 };
 
-module.exports = getUserData;
+module.exports = skillSetData;

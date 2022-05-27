@@ -1,0 +1,12 @@
+{
+  "firstName": "SUBHAJIT",
+  "lastName": "MANNA",
+  "address": "Andul Road, Chandrabati, Podra",
+  "city": "Howrah",
+  "state": "West Bengal",
+  "zipcode": "711109",
+  "dateOfBirth": "2022-05-27",
+  "dateOfJoin": "2022-05-27",
+  "careerLevel": "SDE2",
+  "skills": ["JAVA", "Spring"]
+}

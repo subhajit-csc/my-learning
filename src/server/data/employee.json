@@ -1,0 +1,16 @@
+{
+    "id": "E001",
+    "firstName" : "king",
+    "lastName": " arthur",
+    "dateOfBirth": "1990-06-12",
+    "dateOfJoin": "2020-06-12",
+    "careerLevel": "SDE2",
+    "address":"",
+    "city": "Balgalore",
+    "state": "KA",
+    "zipcode": "560001",
+    "skills": ["JAVA", "Spring", "Microservices", "Spring Cloud", "JUnit", "JavaScript", "Node.js", "Angular", "Apache Kafka","MongoDB",
+      "Docker", "ActiveMQ", "AWS","OpenShift", "Kubernetes","Jenkins"],
+    "cfname": "",
+    "skillsNoSpaces": []
+}

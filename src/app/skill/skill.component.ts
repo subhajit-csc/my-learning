@@ -23,7 +23,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['../../vendor/libs/ngx-toastr/ngx-toastr.scss']
 })
 export class SkillComponent implements OnInit {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:3001';
 
   private options = {
     headers: new HttpHeaders({
@@ -150,7 +150,7 @@ export class SkillComponent implements OnInit {
 
   uniqueSkills() {
     return this.httpclient
-      .get(this.apiUrl + '/api/skills/unique', this.options)
+      .get(this.apiUrl + '/v1/api/skills', this.options)
       .subscribe(data => {
         this.existingSkills = data;
       });
@@ -158,7 +158,7 @@ export class SkillComponent implements OnInit {
 
   getSkillGraph() {
     return this.httpclient
-      .get(this.apiUrl + '/getSkillGraph', this.options)
+      .get(this.apiUrl + '/v1/api/skill-set/getSkillGraph', this.options)
       .subscribe(data => {
         this.chartData = data;
       });
@@ -177,7 +177,7 @@ export class SkillComponent implements OnInit {
 
   getAll() {
     return this.http
-      .get(this.apiUrl + '/getAll')
+      .get(this.apiUrl + '/v1/api/skill-set/getAll')
       .pipe(map((res: Response) => res.json()))
       .subscribe(data => {
         this.empOptions = [];

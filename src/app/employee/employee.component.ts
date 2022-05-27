@@ -22,7 +22,7 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class EmployeeComponent implements OnInit {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:3001';
 
   private options = {
     headers: new HttpHeaders({
@@ -175,7 +175,7 @@ export class EmployeeComponent implements OnInit {
 
   getOptions() {
     this.http
-      .get(this.apiUrl + '/api/skills/unique')
+      .get(this.apiUrl + '/v1/api/skills')
       .pipe(map((res: Response) => res.json()))
       .subscribe(items => {
         this.defaultOptions = [];
@@ -287,7 +287,7 @@ export class EmployeeComponent implements OnInit {
       return this.getAll();
     }
     return this.httpclient
-      .post(this.apiUrl + '/getEmployees', queries, this.options)
+      .post(this.apiUrl + '/v1/api/employees', queries, this.options)
       .subscribe(employees => {
         if (employees !== null) {
           this.data = employees;
@@ -307,7 +307,7 @@ export class EmployeeComponent implements OnInit {
       const employeeJson = this.makeEmployeeJSON();
       const skillsJson = this.makeSkillJSON();
       this.httpclient
-        .post(this.apiUrl + '/api/employees/', employeeJson, this.options)
+        .post(this.apiUrl + '/v1/api/employees', employeeJson, this.options)
         .subscribe(result => {
           this.resultId = result['id'];
           this.httpclient
@@ -339,7 +339,7 @@ export class EmployeeComponent implements OnInit {
       const employeeJson = this.makeEmployeeJSON();
       this.httpclient
         .put(
-          this.apiUrl + '/api/employees/' + this.Id,
+          this.apiUrl + '/v1/api/employees' + this.Id,
           employeeJson,
           this.options
         )
@@ -446,7 +446,7 @@ export class EmployeeComponent implements OnInit {
 
   getAll() {
     return this.http
-      .get(this.apiUrl + '/getAll')
+      .get(this.apiUrl + '/v1/api/skill-set/getAll')
       .pipe(map((res: Response) => res.json()))
       .subscribe(data => {
         this.data = data;
